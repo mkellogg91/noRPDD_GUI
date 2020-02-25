@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import LoginPage from './pages/loginPage';
 import ChatPage from './pages/chatPage';
 import client from './feathers';
+import { Switch, Route } from 'react-router-dom';
+import HomePage from "./pages/homePage";
+import BattlePage from "./pages/battlePage";
+import HeroPage from "./pages/heroPage";
 
 class Application extends Component {
   constructor(props) {
@@ -39,11 +43,13 @@ class Application extends Component {
     });
 
     // on logout reset all local state
-    client.on('logout', ()=>{this.setState({
-      login: null,
-      messages: null,
-      users: null
-    })});
+    client.on('logout', () => {
+      this.setState({
+        login: null,
+        messages: null,
+        users: null
+      })
+    });
 
     // add messages to the message list
     messages.on('created', message => this.setState({
@@ -56,15 +62,28 @@ class Application extends Component {
     }));
   }
 
-  render(){
-    if(this.state.login === undefined){
+  render() {
+    if (this.state.login === undefined) {
       return <main className="container text-center">
         <h1>Loading...</h1>
       </main>;
-    } else if(this.state.login) {
-      return <ChatPage messages={this.state.messages} users={this.state.users} />
     }
 
+    // if we are logged in
+    else if (this.state.login) {
+      //return <ChatPage messages={this.state.messages} users={this.state.users} />
+      return (
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/battlePage" component={BattlePage} />
+          <Route path="/heroPage" component={HeroPage} />
+          <Route path="/chatPage" component={ChatPage} />
+        </Switch>
+      );
+
+    }
+
+    // if not logged in, return login page
     return <LoginPage></LoginPage>
   }
 }

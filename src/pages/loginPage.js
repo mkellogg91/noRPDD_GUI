@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import client from '../feathers';
 
-export default class LoginPage extends Component {
+class LoginPage extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -13,6 +13,8 @@ export default class LoginPage extends Component {
 
   login() {
     const { email, password } = this.state;
+
+    console.log('here is our client: ', client);
 
     return client.authenticate({
       strategy: 'local',
@@ -59,5 +61,7 @@ export default class LoginPage extends Component {
         </div>
       </div>
     </main>;
-  }
+  }  
 }
+
+export default LoginPage;
