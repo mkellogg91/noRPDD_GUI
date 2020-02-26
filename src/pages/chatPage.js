@@ -27,6 +27,8 @@ class ChatPage extends Component {
 
     client.service('messages').on('created', this.scrollToBottom);
     this.scrollToBottom();
+
+    console.log('chat page props: ', this.props);
   }
 
   componentWillUnmount() {
@@ -36,6 +38,7 @@ class ChatPage extends Component {
 
   render() {
     const { users, messages } = this.props;
+    {console.log(this.props)};
 
     return <main className="flex flex-column">
       <header className="title-bar flex flex-row flex-center">

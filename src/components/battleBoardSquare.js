@@ -12,17 +12,16 @@ class BattleBoardSquare extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="board-square">
+      <td className="board-square">
+        <div className="square-contents">
           <div>
             <span>X: {this.props.xVal}</span>
           </div>
           <div>
             <span>Y: {this.props.yVal}</span>
           </div>
-
         </div>
-      </div>
+      </td>
     );
   }
 }

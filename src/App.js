@@ -18,6 +18,9 @@ class Application extends Component {
     const messages = client.service('messages');
     const users = client.service('users');
 
+    console.log('users', users)
+    console.log('messages', messages)
+
     // try to authenticate with JWT stored in local storage
     client.authenticate().catch(() => this.setState({ login: null }));
 
@@ -77,7 +80,7 @@ class Application extends Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/battlePage" component={BattlePage} />
           <Route path="/heroPage" component={HeroPage} />
-          <Route path="/chatPage" component={ChatPage} />
+          <Route path="/chatPage" render={()=> <ChatPage users={this.state.users} messages={this.state.messages} />} />
         </Switch>
       );
 

@@ -6,16 +6,16 @@ class BattleBoard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      boardRowNumber: 6,
-      boardColNumber: 6,
+      boardRowNumber: 10,
+      boardColNumber: 10,
       boardArray: []
     };
 
-    
+
     console.log('props: ', this.props);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.buildBoard();
   }
 
@@ -31,7 +31,7 @@ class BattleBoard extends Component {
     for (var y = 0; y < this.state.boardRowNumber; y++) {
       xArr = []
       for (var x = 0; x < this.state.boardColNumber; x++) {
-        xArr.push( <td><BattleBoardSquare xVal={x} yVal={y} /></td> )
+        xArr.push(<BattleBoardSquare key={x + y} xVal={x} yVal={y} />)
       }
       yArr.push(<tr>{xArr}</tr>)
     }
@@ -48,8 +48,11 @@ class BattleBoard extends Component {
 
   render() {
     return (
-      <div className="container">
-        {this.state.boardArray ? this.state.boardArray : <span />}
+      <div className="battle-board">
+        <table className="no-space">
+          {this.state.boardArray ? this.state.boardArray : <span />}
+        </table>
+
       </div>
     );
   }
