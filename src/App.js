@@ -6,6 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from "./pages/homePage";
 import BattlePage from "./pages/battlePage";
 import HeroPage from "./pages/heroPage";
+import HeroCreatePage from "./pages/heroCreatePage";
 
 class Application extends Component {
   constructor(props) {
@@ -81,6 +82,7 @@ class Application extends Component {
           <Route path="/battlePage" component={BattlePage} />
           <Route path="/heroPage" component={HeroPage} />
           <Route path="/chatPage" render={()=> <ChatPage users={this.state.users} messages={this.state.messages} />} />
+          <Route path="/heroCreate" component={HeroCreatePage} />
         </Switch>
       );
 

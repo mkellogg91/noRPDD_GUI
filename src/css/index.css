@@ -39,6 +39,8 @@ code {
   flex-grow: 1;
   flex-basis: auto;
   height: 100px;
+  align-items: center;
+  justify-content: center;
 }
 
 .battle-board {
