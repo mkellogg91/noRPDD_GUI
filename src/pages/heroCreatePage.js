@@ -64,80 +64,78 @@ class HeroCreatePage extends Component {
   render() {
     return (
       <div className="container">
-        <h1>HAY THIS IS THE HERO CREATE PAGE!!!</h1>
-        <div>
-          Hero Name: <input type="text" placeholder="enter hero name" value={this.state.heroName} onChange={this.heroNameChange}></input>
-        </div>
-        <div>
-          Available Points: {this.state.availablePoints}
-        </div>
-
+        <div className="page-header">CREATE A HERO</div>
         <div className="stat-table">
+          <div className="hero-name py-10">
+            <input className="hero-input" type="text" placeholder="enter hero name" value={this.state.heroName} onChange={this.heroNameChange}></input>
+          </div>
+          <div className="available-points">
+            <span className="pr-10 py-5">Available Points: {this.state.availablePoints}</span>
+          </div>
           <div className="stat-line">
-            <span>Vitality</span>
-            <div>
+            <div className="row-item fg-1">Vitality</div>
+            <div className="px-10">
               <button onClick={() => this.updateStatHandler('vitality', true)}>+</button>
               <button onClick={() => this.updateStatHandler('vitality', false)}>-</button>
             </div>
-            <span>{this.state.vitality}</span>
+            <div className="row-item">{this.state.vitality}</div>
           </div>
           <div className="stat-line">
-            <span>Crit Chance</span>
-            <div>
+            <div className="row-item fg-1">Crit Chance</div>
+            <div className="px-10">
               <button onClick={() => this.updateStatHandler('critChance', true)}>+</button>
               <button onClick={() => this.updateStatHandler('critChance', false)}>-</button>
             </div>
-            <span>{this.state.critChance}</span>
+            <div className="row-item">{this.state.critChance}</div>
           </div>
           <div className="stat-line">
-            <span>Crit Damage</span>
-            <div>
+            <div className="row-item fg-1">Crit Damage</div>
+            <div className="px-10">
               <button onClick={() => this.updateStatHandler('critDamage', true)}>+</button>
               <button onClick={() => this.updateStatHandler('critDamage', false)}>-</button>
             </div>
-
-            <span>{this.state.critDamage}</span>
+            <div className="row-item">{this.state.critDamage}</div>
           </div>
           <div className="stat-line">
-            <span>Attack</span>
-            <div>
+            <div className="row-item fg-1">Attack</div>
+            <div className="px-10">
               <button onClick={() => this.updateStatHandler('attack', true)}>+</button>
               <button onClick={() => this.updateStatHandler('attack', false)}>-</button>
             </div>
-            <span>{this.state.attack}</span>
+            <div className="row-item">{this.state.attack}</div>
           </div>
           <div className="stat-line">
-            <span>Defense</span>
-            <div>
+            <div className="row-item fg-1">Defense</div>
+            <div className="px-10">
               <button onClick={() => this.updateStatHandler('defense', true)}>+</button>
               <button onClick={() => this.updateStatHandler('defense', false)}>-</button>
             </div>
-            <span>{this.state.defense}</span>
+            <div className="row-item">{this.state.defense}</div>
           </div>
           <div className="stat-line">
-            <span>Agility</span>
-            <div>
+            <div className="row-item fg-1">Agility</div>
+            <div className="px-10">
               <button onClick={() => this.updateStatHandler('agility', true)}>+</button>
               <button onClick={() => this.updateStatHandler('agility', false)}>-</button>
             </div>
-            <span>{this.state.agility}</span>
+            <div className="row-item">{this.state.agility}</div>
           </div>
           <div className="stat-line">
-            <span>Intelligence</span>
-            <div>
+            <div className="row-item fg-1">Intelligence</div>
+            <div className="px-10">
               <button onClick={() => this.updateStatHandler('intelligence', true)}>+</button>
               <button onClick={() => this.updateStatHandler('intelligence', false)}>-</button>
             </div>
-            <span>{this.state.intelligence}</span>
+            <div className="row-item">{this.state.intelligence}</div>
           </div>
           <div className="stat-line">
-            <span>Strength</span>
-            <div>
+            <div className="row-item fg-1">Strength</div>
+            <div className="px-10">
               <button onClick={() => this.updateStatHandler('strength', true)}>+</button>
               <button onClick={() => this.updateStatHandler('strength', false)}>-</button>
             </div>
 
-            <span>{this.state.strength}</span>
+            <div className="row-item">{this.state.strength}</div>
           </div>
         </div>
       </div>
