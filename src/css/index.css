@@ -53,4 +53,14 @@ code {
   border-spacing: 0px;
 }
 
+.stat-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-line {
+  display: flex;
+  flex-direction: row;
+}
+
 /*# sourceMappingURL=index.css.map */
