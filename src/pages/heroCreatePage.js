@@ -60,10 +60,14 @@ class HeroCreatePage extends Component {
 
   }
 
+  createHandler = () => {
+    console.log('hero create button clicked');
+  }
+
 
   render() {
     return (
-      <div className="container">
+      <div className="container center-items">
         <div className="page-header">CREATE A HERO</div>
         <div className="stat-table">
           <div className="hero-name py-10">
@@ -136,6 +140,9 @@ class HeroCreatePage extends Component {
             </div>
 
             <div className="row-item">{this.state.strength}</div>
+          </div>
+          <div className="center-content pb-10">
+            <button onClick={()=>this.createHandler()}>Create</button>
           </div>
         </div>
       </div>
