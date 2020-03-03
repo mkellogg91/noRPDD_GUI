@@ -61,7 +61,7 @@ class Application extends Component {
     }));
 
     // add new users to the user list
-    users.on('crated', user => this.setState({
+    users.on('created', user => this.setState({
       users: this.state.users.concat(user)
     }));
   }
