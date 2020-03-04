@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import client from '../feathers';
 import BattleBoard from '../components/battleBoard';
 
+
 class HeroCreatePage extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +22,6 @@ class HeroCreatePage extends Component {
 
   // onchange for hero input
   heroNameChange = (evt) => {
-    console.log('evt: ', evt.target.value);
     if (evt && evt.target.value) {
       this.setState({
         heroName: evt.target.value
@@ -60,8 +60,17 @@ class HeroCreatePage extends Component {
 
   }
 
+  // handles any logic regarding creating a hero
   createHandler = () => {
-    console.log('hero create button clicked');
+    const { heroName, availablePoints, vitality, critChance, critDamage, attack, defense, agility, intelligence, strength } = this.state;
+    
+    if (this.state.heroName) {
+      client.service('heroes').create({
+        heroName, availablePoints, vitality, critChance, critDamage, attack, defense, agility, intelligence, strength
+      }).then(() => {
+        console.log('hero created!!');
+      });
+    }
   }
 
 
@@ -142,7 +151,7 @@ class HeroCreatePage extends Component {
             <div className="row-item">{this.state.strength}</div>
           </div>
           <div className="center-content pb-10">
-            <button onClick={()=>this.createHandler()}>Create</button>
+            <button onClick={() => this.createHandler()}>Create</button>
           </div>
         </div>
       </div>
