@@ -22,7 +22,7 @@ class HeroCreatePage extends Component {
 
   // onchange for hero input
   heroNameChange = (evt) => {
-    if (evt && evt.target.value) {
+    if (evt) {
       this.setState({
         heroName: evt.target.value
       })
