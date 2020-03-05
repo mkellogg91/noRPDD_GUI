@@ -19,9 +19,6 @@ class Application extends Component {
     const messages = client.service('messages');
     const users = client.service('users');
 
-    console.log('users', users)
-    console.log('messages', messages)
-
     // try to authenticate with JWT stored in local storage
     client.authenticate().catch(() => this.setState({ login: null }));
 

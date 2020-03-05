@@ -16,6 +16,8 @@ class LoginPage extends Component {
 
     console.log('here is our client: ', client);
 
+    document.cookie = "username=" + email;
+
     return client.authenticate({
       strategy: 'local',
       email, password
